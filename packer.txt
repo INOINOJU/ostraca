@@ -1,0 +1,1 @@
+ git clone https://hirocominoue@bitbucket.org/hirocominoue/packer-template.git
