@@ -18,7 +18,8 @@ node {
     stage('Confirm current green server'){
         //現在のgreenサーバーの情報（AWS関係を取得）
         dir("${tf_path}"){
-        id = sh returnStdout: true, script: "${terraform} state show terraform state show aws_lb_target_group_attachment.green_attach | grep target_id | awk 'print ${option}'"
+            option = "\$3"
+            id = sh returnStdout: true, script: "${terraform} state show terraform state show aws_lb_target_group_attachment.green_attach | grep target_id | awk 'print ${option}'"
         }
         sh "echo ${id}"
     }
