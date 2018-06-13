@@ -35,6 +35,7 @@ node {
         //現在のgreenサーバーを破棄
         dir("${tf_path}"){
             sh "${terraform} destroy -auto-approve -target=aws_instance.${cgreen_name} ./stage1"
+        }
     }
 
     stage('Create new blue server instance'){
@@ -42,6 +43,7 @@ node {
         //旧Greenサーバと同じTargetGroupに接続
         dir("${tf_path}"){
             sh "${terraform} apply -auto-approve ./stage1"
+        }
     }
 
     stage('Provisioning for new blue server'){
