@@ -27,7 +27,6 @@ node {
             } catch(exception){    
                 cgreen_name = "2anet_server2"
             }
-
         }
         sh "echo ${cgreen_name}"
     }
@@ -35,7 +34,7 @@ node {
     stage('Destroy of the currentgreen server'){
         //現在のgreenサーバーを破棄
         dir("${tf_path}"){
-            sh "${terraform} destroy -auto-approve-target=aws_instance.${cgreen_name} ./stage1"
+            sh "${terraform} destroy -auto-approve -target=aws_instance.${cgreen_name} ./stage1"
     }
 
     stage('Create new blue server instance'){
