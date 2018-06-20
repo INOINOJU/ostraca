@@ -61,9 +61,9 @@ node {
         }
     }
 
-    stage('Execute test for new blue server'){
+    // stage('Execute test for new blue server'){
 
-    }
+    // }
 
     stage('Switch the new blue server'){
         //現Blueサーバと新BlueサーバのTargetGroupを切り替える
