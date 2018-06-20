@@ -71,7 +71,7 @@ node {
             new_green_id = sh returnStdout: true, script: "${terraform} state show aws_lb_target_group_attachment.blue_attach | grep target_id | awk '{print ${option}}' | tr -d '\n'"
             new_blue_id = sh returnStdout: true, script: "${terraform} state show aws_lb_target_group_attachment.green_attach | grep target_id | awk '{print ${option}}' | tr -d '\n'"
 
-            sh "${terraform} terraform apply -var blue_server_id=${new_blue_id} -var green_server_id=${new_green_id} ./stage2"
+            sh "${terraform} terraform apply -auto-approve -var blue_server_id=${new_blue_id} -var green_server_id=${new_green_id} ./stage2"
         }
 
     }
