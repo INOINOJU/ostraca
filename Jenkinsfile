@@ -1,6 +1,6 @@
 def jenkins_path = "/var/lib/jenkins"
 def tf_path      = "${jenkins_path}/terraform/build"
-def ancible_path = "${jenkins_path}/ancible"
+def ansible_path = "${jenkins_path}/ansible"
 def terraform    = "/usr/local/bin/terraform"
 
 def cgreen_name = ""
@@ -56,7 +56,7 @@ node {
         dir("${ansible_path}"){
             sh "echo '[blue_server]' > ./hosts"
             sh "echo ${ip} >> ./hosts"
-            sh "ansible-playbook -i ./hosts --private-key=./2Anet.pem ./ostraca.yml"
+            sh "ansible-playbook -i ./hosts --private-key= ./2Anet.pem ./ostraca.yml"
         }
     }
 
