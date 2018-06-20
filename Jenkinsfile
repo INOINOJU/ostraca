@@ -54,7 +54,7 @@ node {
         }
         sh "echo ${ip}"
         dir("${ansible_path}"){
-        
+            sh "ansible-playbook -i ./hosts --private-key=./2Anet.pem ./ostraca.yml"
         }
     }
 
